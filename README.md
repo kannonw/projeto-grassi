@@ -11,4 +11,3 @@ Caso esteja usando o Visual Studio Code, use um ambiente virtual e instale as de
 * Instale as dependências em **requirements.txt**
 * Rode o arquivo **run.py**
 * Seja feliz
-
