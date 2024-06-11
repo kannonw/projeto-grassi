@@ -1,5 +1,11 @@
 import pygame
-from config import (FPS, SCREEN_SIZE, CAPTION, WHITE)
+from config import (
+    FPS, 
+    SCREEN_SIZE, 
+    CAPTION, 
+    WHITE,
+    PlayerData
+)
 
 from src.scenes.scene import QuitActionType
 from src.scenes.scene_manager import SceneManager
@@ -7,7 +13,7 @@ from src.game_entities.player import Player, Keyboard, Direction
 
 
 def main_loop(
-        game_controller : SceneManager, screen: pygame.Surface, game_entities: pygame.sprite.Group, clock: pygame.time.Clock
+        game_controller : SceneManager, screen: pygame.Surface, clock: pygame.time.Clock
         ):
     
     action: QuitActionType = QuitActionType.CONTINUE
@@ -43,15 +49,15 @@ def main():
     # Instacing players
     game_entities = pygame.sprite.Group()
     
-    player_1 = Player(screen, (160, 180), Direction.LEFT, Keyboard.ARROW)
-    player_2 = Player(screen, (600, 180), Direction.RIGHT, Keyboard.WASD)
+    player_1 = Player(screen, (160, 620), Direction.LEFT, Keyboard.ARROW, PlayerData.FEMALE_SLAYER.value)
+    player_2 = Player(screen, (600, 620), Direction.RIGHT, Keyboard.WASD, PlayerData.DARK_KNIGHT.value)
     
     game_entities.add(player_1)
     game_entities.add(player_2)
 
     scene = SceneManager(screen, game_entities)
 
-    quit_game: QuitActionType = main_loop(scene, screen, game_entities, pygame.time.Clock())
+    quit_game: QuitActionType = main_loop(scene, screen, pygame.time.Clock())
 
     pygame.quit()
 

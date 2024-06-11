@@ -22,8 +22,12 @@ class SceneManager:
         self.game_entities.draw(self.screen)
 
         pygame.draw.rect(self.screen, RED, self.active_scene.platform)
-        pygame.draw.rect(self.screen, (255, 192, 203), self.game_entities.sprites()[0].rect, 2)
-        pygame.draw.rect(self.screen, (255, 192, 203), self.game_entities.sprites()[1].rect, 2)
+        pygame.draw.rect(self.screen, (255, 192, 203), self.game_entities.sprites()[0].hitbox, 2)
+        pygame.draw.rect(self.screen, (255, 192, 203), self.game_entities.sprites()[1].hitbox, 2)
+
+        pygame.draw.rect(self.screen, RED, self.game_entities.sprites()[0].rect, 2)
+        pygame.draw.rect(self.screen, RED, self.game_entities.sprites()[1].rect, 2)
+
         pygame.display.flip()
 
         return QuitActionType.CONTINUE
